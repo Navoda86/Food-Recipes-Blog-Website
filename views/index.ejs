@@ -1,0 +1,126 @@
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+    <div class="col-12 col-lg-6">
+      <img src="/img/chef-35582110.jpg" width="500" height="500" class="d-block mx-lg-auto img-fluid" loading="lazy" alt="Cooking With Node.js">
+    </div>
+    <div class="col-12 col-lg-6">
+        <h1 class="display-5 fw-bold mb-3">It is even better than an expensive cookery book!</h1>
+        <p class="lead">
+          Explore our huge selection of delicious recipe ideas including; easy desserts, delicious vegan and vegetarian dinner ideas, gorgeous pasta recipes, quick bakes, family-friendly meals and gluten-free recipes.
+        </p>
+    
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="/explore-latest" class="btn btn-primary btn-warning btn-lg px-4 me-md-2">Explore Latest</a>
+         
+        </div>
+    
+      </div>
+</div>
+<div class="row row-cols-2 row-cols-lg-6 g-2 g-lg-3 py-4">
+  <% if(categories != '') { %>
+    <% categories.forEach(function(category, index) { %>
+      <a href="/categories/<%-category.name %>" class="col text-center category__link">
+        <div class="category__img shadow">
+          <img src="img/<%- category.image %>" alt="<%-category.name %>" loading="lazy">
+        </div>
+        <div class="pt-1"><%-category.name %>
+          
+        
+        
+        
+        </div>
+      </a>
+    <% }) %>
+  <% } %>
+        
+    
+  
+  <a href="/categories" class="col text-center category__link">
+    <div class="category__img shadow">
+      <img src="img/360_F_85285278_ZtpwNtECDTWXQuF6ifVTdmVt2vAYje38.jpg" alt="View All Categories" loading="lazy">
+    </div>
+    <div class="pt-1">View All</div>
+  </a>
+
+</div>
+           
+  
+  
+
+  <section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+      <h2>Latest Recipes</h2>
+      <a href="/explore-latest" class="ms-auto">View More</a>
+    </div>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+      <% if(food != '') { %>
+        <% food.latest.forEach(function(recipes, index) { %>
+          <a href="/recipes/<%= recipes._id %>" class="col text-center category__link">
+            <div class="category__img category__img--large shadow">
+              <img src="uploads/<%= recipes.image %>" alt="<%= recipes.image %>" loading="lazy">
+            </div>
+            <div class="pt-1"><%= recipes.name %></div>
+          </a>
+          <% }) %>
+          <% } else { %>
+          <p>No items found</p>  
+          <% } %>
+         
+         
+      </div>
+  </section>
+  <section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+      <h2>Thai Recipes</h2>
+      <a href="/categories/Thai" class="ms-auto">View More</a>
+    </div>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+      <% if(typeof food.thai !== 'undifined' && food.thai.length > 0) { %>
+        <% food.thai.forEach(function(recipes, index) { %>
+          <a href="/recipes/<%= recipes._id %>" class="col text-center category__link">
+            <div class="category__img category__img--large shadow">
+              <img src="uploads/<%= recipes.image %>" alt="<%= recipes.image %>" loading="lazy">
+            </div>
+            <div class="pt-1"><%= recipes.name %></div>
+          </a>
+          <% }) %>
+          <% } else { %>
+          <p>No items found</p>  
+          <% } %>
+         
+      </div>
+  </section>
+  <section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+      <h2>American Recipes</h2>
+      <a href="/categories/American" class="ms-auto">View More</a>
+    </div>
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+
+      <% if(typeof food.american !== 'undifined' && food.american.length > 0) { %>
+        <% food.american.forEach(function(recipes, index) { %>
+          <a href="/recipes/<%= recipes._id %>" class="col text-center category__link">
+            <div class="category__img category__img--large shadow">
+              <img src="uploads/<%= recipes.image %>" alt="<%= recipes.image %>" loading="lazy">
+            </div>
+            <div class="pt-1"><%= recipes.name %></div>
+          </a>
+          <% }) %>
+          <% } else { %>
+          <p>No items found</p>  
+          <% } %>
+         
+         
+      </div>
+  </section>
+    <section class="px-4 py-5 my-5 text-center">
+    <img src="/img/il_570xN.4090342175_g8xl.jpg" class="d-block mx-auto mb-4 img-fluid" alt="Publish your recipe for FREE today" width="200" height="200" loading="lazy">
+    <h1 class="display-5 fw-bold">Submit your recipe, New Ideas</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Submit your Recipes and  Share your experiences.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="/submit-recipe" class="btn btn-primary btn-dark btn-lg">Submit Recipe</a>
+      </div>
+    </div>
+  </section>
